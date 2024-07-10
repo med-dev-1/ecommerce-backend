@@ -4,8 +4,12 @@ const articleRouter = require("./routes/article.route")
 const express = require("express");
 const dotenv = require("dotenv");
 const mogoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 dotenv.config();
+app.use(cors({
+    origin:"http://localhost:3000"
+}))
 app.use(express.json());
 app.get("/",(req, res) => {
     res.send("Bienvenue dans notre site web")
